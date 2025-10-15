@@ -149,6 +149,7 @@ router.post("/rank/check/manual", async (req, res) => {
       // console.log("Fetching page with", body);
       const resp = await axios.post("https://google.serper.dev/search", body, {
         headers: {
+          //"X-API-KEY": process.env.SERPER_API_KEY,
           "X-API-KEY": process.env.SERPER_API_KEY || "dc224c31193c095ccf61310ce371aba75df40e47",
           "Content-Type": "application/json",
         },
