@@ -6,7 +6,7 @@ const db = await getDb();
 const router = express.Router();
 
 
-app.get('/health', (_, res) => res.json({ ok: true }));
+router.get('/health', (_, res) => res.json({ ok: true }));
 
 
 
