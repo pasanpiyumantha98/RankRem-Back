@@ -32,6 +32,7 @@ router.post('/insert', (req, res) => {
                  id = lastUser[0].id + 1 || 1;
         }
 
+        // Checking for existing username or email
         const userExsists = await db.collection("Users").findOne({username: username});
         if(userExsists) {
             res.send('UnameExists');
