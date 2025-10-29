@@ -39,6 +39,7 @@ router.post('/insert', (req, res) => {
             return;
         }
 
+        // Checking for existing email
         const emailExists = await db.collection("Users").findOne({email: email});
         if(emailExists) {
             res.send('EmailExists');
