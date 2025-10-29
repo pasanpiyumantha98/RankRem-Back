@@ -49,6 +49,7 @@ router.post('/insert', (req, res) => {
         // Hashing the password before storing
         const hasshedPass = await bcrypt.hash(password, 10);
 
+        // Inserting the new user document
         await db.collection("Users").insertOne({id:id, username:username, email:email, tier:"Free", password:hasshedPass, credits:150});
 
         res.send('success');
