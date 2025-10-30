@@ -11,6 +11,7 @@ const client = new MongoClient(uri);
 await client.connect();
 const db = client.db("RankReminder");
 
+// Returning the database instance
 return db;
 
 }
