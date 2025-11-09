@@ -317,6 +317,7 @@ for (const urlObj of urls) {
     await db.collection("Urls").updateOne(
       { id: id },
       {
+        
         $set: {
           prank: prank,
           nrank: rank,
@@ -327,6 +328,7 @@ for (const urlObj of urls) {
 
    
   } catch (err) {
+    // Log errors but continue with next URL
     console.error(`❌ Error checking rank for ${targetUrl}:`, err.message);
   }
 
