@@ -17,7 +17,7 @@ router.post('/insert', (req, res) => {
     const password = req.body.password;
 
 
-
+    // Inserting a new user into the database
     async function insertUser() {
 
 
