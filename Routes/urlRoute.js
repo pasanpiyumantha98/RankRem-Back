@@ -335,7 +335,7 @@ for (const urlObj of urls) {
   // Optional delay to prevent hitting rate limits
   await new Promise((resolve) => setTimeout(resolve, 150));
 }
-
+  // All URLs processed
    return res.json( "Rankings Updated" );
 
 });
