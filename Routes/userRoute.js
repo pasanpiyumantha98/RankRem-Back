@@ -20,7 +20,7 @@ router.post('/insert', (req, res) => {
     // Inserting a new user into the database
     async function insertUser() {
 
-
+        //getting the last user id
         const lastUser = await db.collection("Users").find().sort({id:-1}).limit(1).toArray();  
 
         let id;
