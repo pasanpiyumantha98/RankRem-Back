@@ -25,6 +25,7 @@ router.post('/insert', (req, res) => {
 
         let id;
 
+        //determining the new user id
         if(lastUser.length === 0) {
              id = 1; // If no users, start with id 1
         } else {
