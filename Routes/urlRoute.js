@@ -227,8 +227,10 @@ router.get('/rank/check/home/:uid', async (req, res) => {
 // Get all URLs for the user
 const uid = req.params.uid;  
 
+
 const uidd = parseInt(uid);
 
+// Fetch URLs from the database
 const urls = await db.collection("Urls").find({uid:uid}).toArray();
 
  //Update user credits
