@@ -238,17 +238,20 @@ const urls = await db.collection("Urls").find({uid:uid}).toArray();
     const user = await db.collection("Users").findOne({id:uidd});
     const  newCredits = user?.credits - urls.length;
 
+      // Deduct credits based on number of URLs checked
     await db.collection("Users").updateOne(
       { id: uidd },
       {$set: { credits: newCredits }}
     );
-    //
+    
 
 if(urls.length === 0)
 {
+  // No URLs found for this user
   return res.status(404).send('No URLs found for this user');
 }
 
+// Iterate over each URL to check its rank
 for (const urlObj of urls) {
   const query = String(urlObj.query || "").trim();
   const gl = String(urlObj.location || "us").toLowerCase();
