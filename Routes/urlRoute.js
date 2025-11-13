@@ -259,7 +259,7 @@ for (const urlObj of urls) {
   const id = urlObj.id;
 
   try {
-    // Call the same Serper API you use in /rank/check/manual
+   
     const body = {
       q: query,
       gl: gl,
