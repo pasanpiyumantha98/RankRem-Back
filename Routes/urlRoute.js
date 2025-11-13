@@ -302,6 +302,7 @@ for (const urlObj of urls) {
     let idx = serp.findIndex(item => isMatch(item.link));
     if (idx === -1) idx = serp.findIndex(item => item.link === targetUrl);
 
+    // Determine the rank
     let rank = "NA";
     if (idx !== -1) {
       const item = serp[idx];
