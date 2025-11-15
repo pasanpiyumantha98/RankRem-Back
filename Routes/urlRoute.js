@@ -163,9 +163,10 @@ router.post("/rank/check/manual", async (req, res) => {
     const user = await db.collection("Users").findOne({id:uid});
 
     
-
+    // Deduct 1 credit for this manual check
     const  newCredits = user?.credits - 1;
 
+  
     await db.collection("Users").updateOne(
       { id: uid },
       {$set: { credits: newCredits }}
@@ -183,14 +184,14 @@ router.post("/rank/check/manual", async (req, res) => {
 
       if (!serp || serp.length === 0) break; // no more results
 
-      // DEBUG: uncomment to see each page’s links
-      // console.log("PAGE", { start, links: serp.map(s => s.link) });
+     
 
       // First try robust key match
       let idx = serp.findIndex(item => isMatch(item.link));
       // Last-chance hard equality
       if (idx === -1) idx = serp.findIndex(item => item.link === targetUrl);
 
+      // Found it!
       if (idx !== -1) {
         const item = serp[idx];
         const absolute = Number.isFinite(item?.position) ? item.position : null;
@@ -210,8 +211,10 @@ router.post("/rank/check/manual", async (req, res) => {
       await new Promise(r => setTimeout(r, 150));
     }
 
+    // Not found in top results
     return res.json({ found: false, message: `Not in Top ${MAX_RESULTS}`, rank: null });
   } catch (err) {
+    // Error handling
     console.error(err?.response?.data || err.message);
     return res.status(500).json({ error: "Failed to check rank" });
   }
