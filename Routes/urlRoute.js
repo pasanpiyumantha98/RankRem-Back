@@ -224,7 +224,7 @@ router.post("/rank/check/manual", async (req, res) => {
 
 router.get('/rank/check/home/:uid', async (req, res) => {
 
-
+// Get all URLs for the user
 const uid = req.params.uid;  
 
 const uidd = parseInt(uid);
