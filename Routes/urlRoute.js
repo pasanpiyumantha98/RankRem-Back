@@ -159,7 +159,7 @@ router.post("/rank/check/manual", async (req, res) => {
       const serp = Array.isArray(resp?.data?.organic) ? resp.data.organic : [];
       return serp;
     };
-
+    //Update user credits
     const user = await db.collection("Users").findOne({id:uid});
 
     
