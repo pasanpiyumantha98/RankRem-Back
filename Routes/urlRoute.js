@@ -98,6 +98,7 @@ router.post("/rank/check/manual", async (req, res) => {
     const uid = parseInt(req.body.uid);
 
     if (!query || !targetUrl) {
+      // Missing parameters
       return res.status(400).json({ error: "query and url are required" });
     }
 
