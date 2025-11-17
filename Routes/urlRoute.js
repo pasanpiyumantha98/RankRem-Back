@@ -69,7 +69,7 @@ router.get('/findall/:uid', async (req, res) => {
   const uid = req.params.uid;
 
   try{
-
+    // Fetching all URLs for the specified user id
     const response = await db.collection("Urls").find({uid:uid}).toArray();
     
     if(response.length === 0){
