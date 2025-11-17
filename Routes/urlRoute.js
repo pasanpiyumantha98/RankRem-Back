@@ -121,6 +121,7 @@ router.post("/rank/check/manual", async (req, res) => {
         if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
         return `${host}${path}`;
       } catch {
+        // if URL parsing fails, fallback to raw string
         return String(u).trim().toLowerCase();
       }
     };
