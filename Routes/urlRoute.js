@@ -36,7 +36,7 @@ router.post('/insert', (req, res) => {
         }
 
         
-
+        //inserting new url
         await db.collection("Urls").insertOne({id:id, uid:uid, url: url, location: location, query: query, lastChecked: "NA", nrank: "NA", prank:"NA"});
         res.send('success');
 
