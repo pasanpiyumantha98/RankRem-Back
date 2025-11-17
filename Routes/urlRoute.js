@@ -132,6 +132,7 @@ router.post("/rank/check/manual", async (req, res) => {
     const isMatch = (candidateLink) => {
       const k = toKey(candidateLink);
       if (k === targetKey) return true;
+      // prefix match
       return k.startsWith(targetKey) || targetKey.startsWith(k);
     };
 
