@@ -53,6 +53,7 @@ router.delete('/delete/:id', async (req, res) => {
         return res.status(400).send('Missing URL id');
     }
     try {
+      // Deleting the URL document with the specified id
         const result = await db.collection("Urls").deleteOne({ id: id });
         if (result.deletedCount === 0) {
             return res.status(404).send('URL not found');
